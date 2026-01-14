@@ -170,59 +170,66 @@ const Projects = () => {
 
                 {/* Projects Grid */}
                 <div ref={ref} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {projects.map((project, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={isInView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ delay: index * 0.1, duration: 0.5 }}
-                            className={`group relative rounded-2xl overflow-hidden glass-strong border-white/10 hover:border-cyan-500/30 transition-colors duration-500 ${project.status === 'Coming Soon' ? 'cursor-not-allowed' : 'cursor-pointer'}`}
-                            onClick={() => {
-                                if (project.status !== 'Coming Soon' && project.link !== '#') {
-                                    window.open(project.link, '_blank');
-                                }
-                            }}
-                        >
-                            <ProjectArt type={project.type} gradient={project.gradient} />
+                    {projects.map((project, index) => {
+                        const isComingSoon = project.status === 'Coming Soon';
+                        const CardWrapper = isComingSoon ? 'div' : 'a';
 
-                            {project.status && (
-                                <div className="absolute top-4 right-4 z-20">
-                                    <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md border ${project.status === 'Coming Soon'
-                                        ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
-                                        : 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30'
-                                        }`}>
-                                        {project.status}
-                                    </span>
-                                </div>
-                            )}
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 30 }}
+                                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                                transition={{ delay: index * 0.1, duration: 0.5 }}
+                                className="relative h-full"
+                            >
+                                <CardWrapper
+                                    href={isComingSoon ? undefined : project.link}
+                                    target={isComingSoon ? undefined : "_blank"}
+                                    rel={isComingSoon ? undefined : "noopener noreferrer"}
+                                    className={`group block h-full relative rounded-2xl overflow-hidden glass-strong border-white/10 hover:border-cyan-500/30 transition-colors duration-500 ${isComingSoon ? 'cursor-not-allowed' : 'cursor-pointer'
+                                        }`}
+                                >
+                                    <ProjectArt type={project.type} gradient={project.gradient} />
 
-                            <div className="p-8 relative z-10 bg-black/20 backdrop-blur-sm -mt-2">
-                                <div className="flex justify-between items-start mb-4">
-                                    <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
-                                        {project.title}
-                                    </h3>
-                                    <motion.div
-                                        whileHover={{ rotate: 45 }}
-                                        className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors"
-                                    >
-                                        <ArrowUpRight size={20} />
-                                    </motion.div>
-                                </div>
+                                    {project.status && (
+                                        <div className="absolute top-4 right-4 z-20">
+                                            <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md border ${project.status === 'Coming Soon'
+                                                ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
+                                                : 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30'
+                                                }`}>
+                                                {project.status}
+                                            </span>
+                                        </div>
+                                    )}
 
-                                <p className="text-gray-400 mb-6 leading-relaxed text-sm h-12 line-clamp-2">
-                                    {project.description}
-                                </p>
+                                    <div className="p-8 relative z-10 bg-black/20 backdrop-blur-sm -mt-2">
+                                        <div className="flex justify-between items-start mb-4">
+                                            <h3 className="text-2xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                                                {project.title}
+                                            </h3>
+                                            <div
+                                                className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors"
+                                            >
+                                                <ArrowUpRight size={20} />
+                                            </div>
+                                        </div>
 
-                                <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
-                                    {project.tags.map((tag, i) => (
-                                        <span key={i} className="text-[10px] font-mono font-medium text-cyan-300 px-2 py-1 rounded bg-cyan-500/10 border border-cyan-500/20">
-                                            {tag}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
+                                        <p className="text-gray-400 mb-6 leading-relaxed text-sm h-12 line-clamp-2">
+                                            {project.description}
+                                        </p>
+
+                                        <div className="flex flex-wrap gap-2 pt-4 border-t border-white/5">
+                                            {project.tags.map((tag, i) => (
+                                                <span key={i} className="text-[10px] font-mono font-medium text-cyan-300 px-2 py-1 rounded bg-cyan-500/10 border border-cyan-500/20">
+                                                    {tag}
+                                                </span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </CardWrapper>
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>
