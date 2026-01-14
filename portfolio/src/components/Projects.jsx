@@ -101,7 +101,7 @@ const Projects = () => {
             tags: ['React', 'OpenWeather API', 'Chart.js', 'Tailwind'],
             gradient: 'from-[#3b82f6] to-[#06b6d4]', // Blue to Cyan
             type: 'weather',
-            link: 'https://my-web-projects-53nr.vercel.app',
+            link: '/projects/weather/index.html',
             status: 'Featured',
         },
         {
@@ -188,8 +188,8 @@ const Projects = () => {
                             {project.status && (
                                 <div className="absolute top-4 right-4 z-20">
                                     <span className={`px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider backdrop-blur-md border ${project.status === 'Coming Soon'
-                                            ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
-                                            : 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30'
+                                        ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
+                                        : 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30'
                                         }`}>
                                         {project.status}
                                     </span>
