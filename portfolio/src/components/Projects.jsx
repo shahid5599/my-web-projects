@@ -101,7 +101,7 @@ const Projects = () => {
             tags: ['React', 'OpenWeather API', 'Chart.js', 'Tailwind'],
             gradient: 'from-[#3b82f6] to-[#06b6d4]', // Blue to Cyan
             type: 'weather',
-            link: '/projects/weather/index.html',
+            link: './projects/weather/index.html',
             status: 'Featured',
         },
         {
@@ -119,7 +119,7 @@ const Projects = () => {
             tags: ['HTML5 Canvas', 'Physics Engine', 'Web Audio'],
             gradient: 'from-[#f59e0b] to-[#ef4444]', // Amber to Red
             type: 'car',
-            link: '/projects/car-game/index.html',
+            link: './projects/car-game/index.html',
         },
         {
             title: 'Retro Pong',
@@ -127,7 +127,7 @@ const Projects = () => {
             tags: ['JavaScript', 'Game Loop', 'Particles'],
             gradient: 'from-[#10b981] to-[#3b82f6]', // Emerald to Blue
             type: 'pingpong',
-            link: '/projects/pong-game/index.html',
+            link: './projects/pong-game/index.html',
         },
         {
             title: 'Logic Master',
@@ -135,7 +135,7 @@ const Projects = () => {
             tags: ['React', 'Algorithms', 'State Mgmt'],
             gradient: 'from-[#6366f1] to-[#8b5cf6]', // Indigo to Purple
             type: 'number',
-            link: '/projects/guessing-game/game.html',
+            link: './projects/guessing-game/game.html',
         },
         {
             title: 'Smart Calculator',
@@ -143,7 +143,7 @@ const Projects = () => {
             tags: ['HTML', 'CSS', 'JavaScript'],
             gradient: 'from-[#ec4899] to-[#f43f5e]', // Pink to Rose
             type: 'calculator',
-            link: '/projects/calculator/index.html',
+            link: './projects/calculator/index.html',
         },
     ];
 
