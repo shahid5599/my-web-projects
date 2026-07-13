@@ -17,7 +17,7 @@ A React-based weather application that allows users to check weather conditions 
 1. Navigate to the weather website directory: `cd "weather website"`
 2. Install dependencies (first time only): `npm install`
 3. Start the development server: `npm start`
-4. Open your browser and go to: http://localhost:3000
+4. Open your browser and go to: https://shahid-portfolio-v2-tau.vercel.app/
 
 ### Simple Calculator
 
